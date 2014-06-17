@@ -1,0 +1,26 @@
+{
+  "name": "generator-scrat",
+  "version": "0.1.0",
+  "description": "Scaffold out a scrat project",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scrat-team/generator-scrat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/scrat-team/generator-scrat/issues"
+  },
+  "main": "app/index.js",
+  "keywords": [
+    "scrat",
+    "scaffold",
+    "generator"
+  ],
+  "author": "Hinc <hincubus@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "~0.17.0",
+    "semver": "~2.3.0",
+    "debug": "~1.0.2",
+    "rimraf": "~2.2.8"
+  }
+}
