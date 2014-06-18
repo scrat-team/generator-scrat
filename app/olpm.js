@@ -29,3 +29,10 @@ exports.views = function (done) {
 exports.server = function () {
     this.template('index.js');
 };
+
+exports.install = function (done) {
+    this.npmInstall([
+        'express',
+        'request'
+    ], {save: true}, done);
+};
