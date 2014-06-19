@@ -131,7 +131,7 @@ proto.meta = function () {
 
 proto.server = function () {
     debug('[server]');
-    this.get('server');
+    this.get('server')();
 };
 
 proto.views = function () {
