@@ -152,10 +152,10 @@ proto.components = function () {
     this.get('components')();
 };
 
-proto.install = function () {
-    if (this.options.skipInstall) return;
-    debug('[install]');
-    this.get('install')(this.async());
-};
+// proto.install = function () {
+//     if (this.options.skipInstall) return;
+//     debug('[install]');
+//     this.get('install')(this.async());
+// };
 
 module.exports = Generator;
