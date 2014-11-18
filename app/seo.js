@@ -10,3 +10,11 @@ exports.views = function (done) {
     done();
   });
 };
+
+exports.server = function () {
+  var that = this;
+  this.directory('server', function (content) {
+    return that.engine(content, that);
+  });
+  this.template('Procfile');
+};
