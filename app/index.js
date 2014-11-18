@@ -95,6 +95,9 @@ proto.prepare = function () {
                 name: 'webapp',
                 value: 'webapp'
             }, {
+                name: 'seo',
+                value: 'seo'
+            }, {
                 name: 'olpm',
                 value: 'olpm'
             }]
