@@ -78,7 +78,7 @@ proto.prepare = function () {
             type: 'input',
             name: 'name',
             message: 'Your project name',
-            default : this.appname
+            default : this.appname.split(' ').join('_')
         }, {
             type: 'input',
             name: 'version',
@@ -95,6 +95,9 @@ proto.prepare = function () {
                 name: 'webapp',
                 value: 'webapp'
             }, {
+                name: 'pagelet',
+                value: 'pagelet'
+            },, {
                 name: 'seo',
                 value: 'seo'
             }, {
