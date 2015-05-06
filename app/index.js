@@ -52,7 +52,7 @@ proto = Generator.prototype;
 proto._getTemplate = function (callback) {
     var cacheTemplate = path.resolve(tmpPath, this.type),
         archive = 'https://codeload.github.com/scrat-team/scrat-template-' +
-            this.type + '/tar.gz/master';
+            this.type + '/tar.gz/' + (this.tag || 'master');
     callback = callback || function () {};
 
     if (this.options.clean) {
@@ -97,20 +97,38 @@ proto.prepare = function () {
             }, {
                 name: 'pagelet',
                 value: 'pagelet'
-            },, {
+            }, {
                 name: 'seo',
                 value: 'seo'
             }, {
                 name: 'olpm',
                 value: 'olpm'
             }]
+        }, {
+            type: 'list',
+            name: 'subtype',
+            message: 'Use express or koa?',
+            choices: [{
+                name: 'express',
+                value: 'express'
+            }, {
+                name: 'koa',
+                value: 'koa'
+            }],
+            when: function(answers){
+                return answers && answers.type === 'pagelet';
+            }
         }];
 
     this.prompt(prompts, function (answers) {
         that.appname = answers.name;
         that.version = answers.version;
         that.type = answers.type;
-        debug('[prepare] project type: %s', that.type);
+        that.subtype = answers.subtype;
+        if(that.subtype === 'koa'){
+            that.tag = 'koa';
+        }
+        debug('[prepare] project type: %s', that.type + (this.subtype ? '(' + this.subtype + ')' : ''));
         that.get('prepare')(function () {
             that._getTemplate(function (err, template) {
                 if (err) return done(err);
